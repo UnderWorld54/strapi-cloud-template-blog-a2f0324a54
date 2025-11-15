@@ -430,6 +430,64 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCoverCover extends Struct.CollectionTypeSchema {
+  collectionName: 'covers';
+  info: {
+    displayName: 'Cover';
+    pluralName: 'covers';
+    singularName: 'cover';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    artist: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::cover.cover'> &
+      Schema.Attribute.Private;
+    projectName: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLogoLogo extends Struct.CollectionTypeSchema {
+  collectionName: 'logos';
+  info: {
+    displayName: 'Logo';
+    pluralName: 'logos';
+    singularName: 'logo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    artist: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::logo.logo'> &
+      Schema.Attribute.Private;
+    projectName: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPhotoPhoto extends Struct.CollectionTypeSchema {
   collectionName: 'photos';
   info: {
@@ -450,6 +508,67 @@ export interface ApiPhotoPhoto extends Struct.CollectionTypeSchema {
     image: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::photo.photo'> &
+      Schema.Attribute.Private;
+    projectName: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPrintPrint extends Struct.CollectionTypeSchema {
+  collectionName: 'prints';
+  info: {
+    displayName: 'Print';
+    pluralName: 'prints';
+    singularName: 'print';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    artist: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::print.print'> &
+      Schema.Attribute.Private;
+    projectName: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
+  collectionName: 'videos';
+  info: {
+    displayName: 'Video';
+    pluralName: 'videos';
+    singularName: 'video';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    artist: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.Private;
+    link: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::video.video'> &
       Schema.Attribute.Private;
     projectName: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -969,7 +1088,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::cover.cover': ApiCoverCover;
+      'api::logo.logo': ApiLogoLogo;
       'api::photo.photo': ApiPhotoPhoto;
+      'api::print.print': ApiPrintPrint;
+      'api::video.video': ApiVideoVideo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

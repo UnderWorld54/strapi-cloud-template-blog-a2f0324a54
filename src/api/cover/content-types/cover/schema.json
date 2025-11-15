@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "covers",
+  "info": {
+    "singularName": "cover",
+    "pluralName": "covers",
+    "displayName": "Cover"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "artist": {
+      "type": "string"
+    },
+    "projectName": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}
